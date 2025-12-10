@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TRY-ON – Virtual Fitting App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>TRY-ON</h1>
+        <p>Your emotional wardrobe assistant</p>
+    </header>
+    <main>
+        <button onclick="alert('Avatar creation coming soon')">Create Avatar</button>
+        <button onclick="alert('Launching virtual wardrobe...')">Try It On</button>
+        <div id="shopify-buy-button"></div>
+    </main>
+    <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+    <script>
+      (function() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'YOUR_SHOPIFY_DOMAIN',
+          storefrontAccessToken: 'YOUR_STOREFRONT_ACCESS_TOKEN'
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: 'YOUR_PRODUCT_ID',
+            node: document.getElementById('shopify-buy-button'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D'
+          });
+        });
+      })();
+    </script>
+</body>
+</html>

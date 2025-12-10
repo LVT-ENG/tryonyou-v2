@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryOnYou - Your perfect TryOn</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    #intro-video {
+      width: 100%;
+      height: auto;
+      max-height: 100vh;
+    }
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 1rem;
+      background-color: #000;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <video id="intro-video" autoplay muted playsinline></video>
+  <footer>© <span id="copyright-year"></span> TryOnMe. All rights reserved.</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videoEl = document.getElementById('intro-video');
+      const videoMap = {
+        es: 'videos/intro_espanol.mp4',
+        fr: 'videos/intro_frances.mp4',
+        en: 'videos/intro_ingles.mp4'
+      };
+      const lang = navigator.language.slice(0, 2).toLowerCase();
+      if (videoEl) {
+        videoEl.src = videoMap[lang] || videoMap.en;
+        videoEl.load();
+      }
+      const yearEl = document.getElementById('copyright-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+requests
+python-dotenv
+
+pytrends
+beautifulsoup4
+argon2-cffi
+
+openai
+flask

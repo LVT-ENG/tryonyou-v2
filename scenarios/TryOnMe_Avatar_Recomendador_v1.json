@@ -1,0 +1,69 @@
+{
+  "scenarios": [
+    {
+      "name": "TryOnMe_Avatar_Recomendador_v1",
+      "modules": [
+        {
+          "module": "form.collect",
+          "parameters": {
+            "fields": [
+              {"label": "Nombre", "key": "nombre", "type": "text"},
+              {"label": "Email", "key": "email", "type": "email"},
+              {"label": "Altura", "key": "altura", "type": "number"},
+              {"label": "Pecho", "key": "pecho", "type": "number"},
+              {"label": "Cintura", "key": "cintura", "type": "number"},
+              {"label": "Cadera", "key": "cadera", "type": "number"},
+              {"label": "Tipo de prenda deseada", "key": "prenda", "type": "select", "options": ["Chaqueta", "Pantal\u00f3n", "Vestido"]}
+            ]
+          },
+          "mapper": {},
+          "position": {"x": 100, "y": 100},
+          "name": "Recoger Datos del Usuario"
+        },
+        {
+          "module": "http.makeRequest",
+          "parameters": {
+            "url": "https://api.tryonme.com/avatar/generate",
+            "method": "POST",
+            "headers": [
+              {"name": "Content-Type", "value": "application/json"}
+            ],
+            "body": "{ \"altura\": {{altura}}, \"pecho\": {{pecho}}, \"cintura\": {{cintura}}, \"cadera\": {{cadera}} }"
+          },
+          "mapper": {},
+          "position": {"x": 300, "y": 100},
+          "name": "Generar Avatar 3D"
+        },
+        {
+          "module": "http.makeRequest",
+          "parameters": {
+            "url": "https://api.tryonme.com/comparador",
+            "method": "POST",
+            "body": "{ \"avatar_id\": {{avatar_3d.response.avatar_id}}, \"tipo\": {{prenda}} }"
+          },
+          "mapper": {},
+          "position": {"x": 500, "y": 100},
+          "name": "Comparar con Base de Datos Textil"
+        },
+        {
+          "module": "ui.display",
+          "parameters": {
+            "title": "Tu prenda ideal",
+            "image": "{{comparador_patrones.response.imagen}}",
+            "description": "{{comparador_patrones.response.descripcion}}",
+            "buttons": [
+              {"label": "Probar Otra", "action": "restart"},
+              {"label": "Comprar Ahora", "action": "redirect", "url": "{{comparador_patrones.response.url_shopify}}"}
+            ]
+          },
+          "mapper": {},
+          "position": {"x": 700, "y": 100},
+          "name": "Mostrar Recomendaci\u00f3n Visual"
+        }
+      ],
+      "metadata": {
+        "version": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryOnYou – Discover Your Fit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="TryOnYou" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#recomienda">Recomendados</a></li>
+        <li><a href="#avatar">Avatar 3D</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video id="intro-video" autoplay muted loop playsinline class="video-fondo"></video>
+    <div class="overlay">
+      <h1>Measure. Match. Live it.</h1>
+      <a href="#contacto" class="cta-button">Start Your TryOn</a>
+    </div>
+  </section>
+
+  <section id="recomienda" class="carousel">
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 1"></div>
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 2"></div>
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 3"></div>
+  </section>
+
+  <section id="avatar" class="avatar-section">
+    <h2>Your Avatar</h2>
+    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" autoplay ar interaction-policy="allow-when-focused" camera-controls></model-viewer>
+    </section>
+
+    <!-- MÓDULO AUTODONATE™ + COMUNIDAD TRYONYOU -->
+    <section id="comunidad" class="comunidad-section">
+      <div class="header">
+        <h2>AutoDonate™ &amp; Comunidad</h2>
+        <p>Tu ropa puede tener otra vida. Pau sabe dónde llevarla.</p>
+      </div>
+      <div class="autodonate-panel">
+        <h3>Prendas sugeridas para donar</h3>
+        <ul></ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="form-section">
+      <h2>Join the Experience</h2>
+      <form>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="submit" value="Send" />
+    </form>
+  </section>
+
+  <footer>© <span id="copyright-year"></span> TryOnMe. All rights reserved.</footer>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

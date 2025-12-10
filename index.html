@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryOnYou - Your perfect TryOn</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js" type="module"></script>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <video id="intro-video" autoplay muted loop playsinline></video>
+      <div class="overlay">
+        <h1>Measure. Match. Live it.</h1>
+        <button class="btn cta" id="start-btn">Start</button>
+      </div>
+    </section>
+
+    <section id="recommendations" class="carousel-section">
+      <h2>Recommended For You</h2>
+      <div class="carousel" id="product-carousel"></div>
+    </section>
+
+    <section id="avatar" class="avatar-section">
+      <canvas id="avatar-canvas" width="300" height="400"></canvas>
+    </section>
+
+    <section id="signup" class="form-section">
+      <h2>Join Our Beta</h2>
+      <form id="signup-form">
+        <input type="email" placeholder="you@example.com" required />
+        <button type="submit" class="btn">Notify Me</button>
+      </form>
+      <p id="form-msg" hidden>Thanks! We'll be in touch.</p>
+    </section>
+  </main>
+  <footer>© <span id="copyright-year"></span> TryOnMe. All rights reserved.</footer>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

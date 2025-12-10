@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TryOnMe Dashboard</title>
+    <meta name="description" content="Dashboard para gestionar productos y despliegues de TryOnMe." />
+    <link rel="canonical" href="https://tryonyou.app/tryon_dashboard.html" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script defer src="/scripts/shopify-buy.js"></script>
+    <script defer src="/scripts/tryonme-dashboard.js"></script>
+    <script defer src="/scripts/catalog.js"></script>
+    <script defer src="/scripts/autodeploy.js"></script>
+  </head>
+  <body>
+    <header>
+      <video id="heroVideo" autoplay muted loop playsinline>
+        <source src="/video_portada.mp4" type="video/mp4" />
+        Tu navegador no admite el vídeo.
+      </video>
+      <div class="overlay">
+        <h1>Welcome to TryOnMe</h1>
+        <p>Your perfect fit in seconds</p>
+      </div>
+    </header>
+
+    <main id="app">
+      <div id="tryon-container"></div>
+      <button id="shopifyBuyBtn">Buy Now</button>
+
+      <section id="tasks-dashboard">
+        <h2>Task Dashboard</h2>
+        <ul>
+          <li>✅ Deployment docs consolidated. See <a href="/docs/deployment_overview.md">deployment_overview.md</a></li>
+          <li>🔁 HealthMonitor scheduled every 6h and after main pushes</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

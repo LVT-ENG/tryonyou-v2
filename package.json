@@ -1,0 +1,12 @@
+{
+  "name": "tryon-app",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Test OK\"",
+    "deploy": "bash 04_Scripts_Produccion/ejecutar_agentes.sh",
+    "start": "node index.js",
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {},
+  "type": "module"
+}

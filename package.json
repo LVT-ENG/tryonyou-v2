@@ -1,0 +1,12 @@
+{
+  "name": "tryon-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "deploy": "vercel --prod --confirm --yes --token=$VERCEL_TOKEN"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4"
+  }
+}

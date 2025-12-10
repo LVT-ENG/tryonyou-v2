@@ -41,7 +41,7 @@ const GARMENTS: Garment[] = [
 ];
 
 const MODELS: Model[] = [
-  { id: 'redhead-natural', name: 'Pelirroja Divina', image: '/assets/premium/model-redhead-natural.png' },
+  { id: '1', name: 'Pelirroja Divina', image: '/assets/premium/model-redhead-natural-v2.png' },
   { id: 'blonde-male', name: 'Rubio Le Male', image: '/assets/premium/model-blonde-male-fashion.png' },
   { id: 'arabic-male', name: 'Árabe Elegante', image: '/assets/premium/model-arabic-male-fashion.png' },
   { id: 'indian-female', name: 'India Bollywood', image: '/assets/premium/model-indian-female-fashion.png' },

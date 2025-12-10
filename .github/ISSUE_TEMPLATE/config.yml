@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://github.com/Tryonme-com/tryon-app/tree/main/docs
+    about: Check our documentation for guides and references
+  - name: Discussions
+    url: https://github.com/Tryonme-com/tryon-app/discussions
+    about: Ask questions and discuss ideas with the community

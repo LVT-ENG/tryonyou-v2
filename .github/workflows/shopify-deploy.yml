@@ -1,0 +1,16 @@
+name: Shopify Auto Deploy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'theme/**'
+      - '.github/workflows/shopify-deploy.yml'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          npm install -g @shopify/cli @shopify/theme
+          shopify config set --store ${{ secrets.SHOPIFY_STORE_DOMAIN }} --token ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+      - run: shopify theme push --path=theme --force

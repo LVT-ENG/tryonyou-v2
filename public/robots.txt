@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://tryonyou.app/sitemap.xml
+Host: https://tryonyou.app

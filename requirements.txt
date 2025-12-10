@@ -1,0 +1,12 @@
+requests>=2.32.4
+python-dotenv
+
+pytrends
+beautifulsoup4
+argon2-cffi
+
+openai
+flask
+
+schedule
+google-api-python-client

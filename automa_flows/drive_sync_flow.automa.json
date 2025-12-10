@@ -1,0 +1,7 @@
+{
+  "name": "Drive Sync Flow",
+  "description": "Detecta nuevo archivo y avisa/notifica",
+  "nodes": [],
+  "edges": [],
+  "version": "1.0"
+}

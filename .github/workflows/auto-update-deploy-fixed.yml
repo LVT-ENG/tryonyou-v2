@@ -1,0 +1,29 @@
+name: Auto Update Deploy Fixed
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests flake8
+      - name: Check OpenAI Models
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/openai_model_check.py
+      - name: Check Server IP
+        run: python scripts/ip_checker.py
+      - name: Run Python Lint
+        run: flake8 scripts/

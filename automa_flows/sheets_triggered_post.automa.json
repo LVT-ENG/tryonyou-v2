@@ -1,0 +1,7 @@
+{
+  "name": "Sheets Triggered Post",
+  "description": "Postea desde Google Sheets 1x semana",
+  "nodes": [],
+  "edges": [],
+  "version": "1.0"
+}

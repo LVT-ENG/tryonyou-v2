@@ -1,0 +1,13 @@
+{
+  "trigger": {
+    "name": "DISPARADOR_GENERAL_GENTE_ES_GRAN",
+    "description": "Activa todos los agentes senior de GENTE ES GRAN en modo delegado automático",
+    "onStart": [
+      "G-1: CEO SHADOW",
+      "G-2: CODE FIXER",
+      "G-3: AUTO OPTIMIZER",
+      "G-4: BRAND VOICE",
+      "G-5: PARTNER HUNTER"
+    ]
+  }
+}

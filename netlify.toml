@@ -1,0 +1,27 @@
+[build]
+  command = "bash scripts/prepare_netlify.sh && npm install && npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "18.16.0"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/estructura"
+  to = "/estructura.html"
+  status = 200
+
+[[redirects]]
+  from = "/pau"
+  to = "/pau-emotions.html"
+  status = 200
+
+# Health check endpoint
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

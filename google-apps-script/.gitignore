@@ -1,0 +1,19 @@
+# Archivos de configuración con datos sensibles
+.env
+
+# Credenciales de Google
+credentials/
+*.json
+
+# Excepción: permitir appsscript.json
+!appsscript.json
+
+# Logs
+*.log
+
+# Node modules si se instalan aquí
+node_modules/
+
+# Archivos temporales
+*.tmp
+.DS_Store

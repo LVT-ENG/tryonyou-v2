@@ -1,0 +1,17 @@
+{
+  "trigger": {
+    "name": "DISPARADOR_GENERAL_TRYONYOU",
+    "description": "Activa el flujo completo de agentes Codex para desplegar y ejecutar TryOnYou",
+    "onStart": [
+      "SYNC MASTER",
+      "FRONT DEPLOYER",
+      "FORM & VIDEO TESTER",
+      "PUBLIC ACCESS UNLOCKER",
+      "ACCESS KEYS MANAGER",
+      "SUPERAGENTE RUNNING #1 – App Runner UX",
+      "SUPERAGENTE RUNNING #2 – Backend Runner AI",
+      "AGENTE 69 – Advocate GPT Supreme",
+      "CODEX REPORTER"
+    ]
+  }
+}

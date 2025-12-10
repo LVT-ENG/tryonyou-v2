@@ -1,0 +1,27 @@
+{
+  "scenarios": [
+    {
+      "name": "Shopify Upload Trigger",
+      "modules": [
+        {
+          "module": "http.makeRequest",
+          "parameters": {
+            "url": "https://tryonyou.vercel.app/api/upload",
+            "method": "POST",
+            "headers": [
+              { "name": "Content-Type", "value": "application/json" }
+            ],
+            "bodyType": "raw",
+            "contentType": "application/json",
+            "body": "{ \"sku\": \"SKU123\", \"nombre\": \"Chaqueta 3D\", \"precio\": 199.99 }"
+          },
+          "mapper": {},
+          "position": { "x": 100, "y": 100 }
+        }
+      ],
+      "metadata": {
+        "version": 1
+      }
+    }
+  ]
+}

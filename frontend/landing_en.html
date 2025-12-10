@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="English landing page for TryOnMe virtual fitting." />
+  <link rel="canonical" href="https://tryonyou.app/landing_en.html" />
+  <title>TryOnMe</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <h1 class="text-2xl font-bold text-green-600">TryOnMe</h1>
+      <nav class="space-x-6 hidden md:block">
+        <a href="#home" class="hover:text-green-600">Home</a>
+        <a href="#how" class="hover:text-green-600">How It Works</a>
+        <a href="#products" class="hover:text-green-600">Products</a>
+        <a href="#measure" class="hover:text-green-600">Measure Your Body</a>
+        <a href="#contact" class="hover:text-green-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Video -->
+  <section id="home" class="pt-24">
+    <video autoplay muted loop class="w-full h-screen object-cover">
+      <source src="video_portada.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">How Does It Work?</h2>
+    <p class="max-w-3xl mx-auto">Use our system to scan your body, generate a 3D avatar and receive truly personalized recommendations. Everything is connected to our catalogue and brands like Levi's.</p>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="py-16 px-6 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-10">Featured Products</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <!-- Real products would be inserted here -->
+      <div class="bg-white p-4 shadow rounded">
+        <img src="producto1.jpg" alt="Product 1" class="mb-4 rounded" />
+        <h3 class="font-semibold text-lg">Sample Green T-shirt</h3>
+        <p class="text-gray-500">From €29.99</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded">
+        <img src="producto2.jpg" alt="Product 2" class="mb-4 rounded" />
+        <h3 class="font-semibold text-lg">Sample Gray T-shirt</h3>
+        <p class="text-gray-500">From €29.99</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded">
+        <img src="producto3.jpg" alt="Product 3" class="mb-4 rounded" />
+        <h3 class="font-semibold text-lg">Sample Blue T-shirt</h3>
+        <p class="text-gray-500">From €29.99</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Measure Your Body -->
+  <section id="measure" class="py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Measure Your Body</h2>
+    <p>Don't have a tape measure? Learn how to make one at home or use our interactive visual guide.</p>
+    <button class="mt-6 bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-700">Start Scan</button>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-6 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact</h2>
+    <p>Questions or want to collaborate? Write to <a href="mailto:rubén.espinar.10@icloud.com" class="text-green-600 underline">rubén.espinar.10@icloud.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center text-sm py-4 shadow-inner">
+    © 2025 TryOnMe. All rights reserved.
+  </footer>
+</body>
+</html>

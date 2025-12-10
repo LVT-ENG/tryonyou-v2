@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Embeddable TryOnMe profile creator." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://tryonyou.app/embed.html" />
+  <title>TryOnMe</title>
+</head>
+<body>
+  <h1>TRYONME</h1>
+  <p>Crea tu Cray\u00f3n o busca el de alguien para regalarle lo que realmente le queda bien.</p>
+  <button onclick="mostrarCrear()">Crear mi Cray\u00f3n</button>
+  <button onclick="mostrarBuscar()">Buscar TryOnMe</button>
+
+  <div id="crear" style="display:none">
+    <form id="formCrear">
+      <input name="nombre" placeholder="Nombre" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="altura" placeholder="Altura" required>
+      <input name="pecho" placeholder="Pecho" required>
+      <input name="cintura" placeholder="Cintura" required>
+      <input name="cadera" placeholder="Cadera" required>
+      <input name="tipoCuerpo" placeholder="Tipo de cuerpo" required>
+      <input name="prendaAntigua" placeholder="Prenda antigua" required>
+      <button>Crear</button>
+    </form>
+  </div>
+
+  <div id="buscar" style="display:none">
+    <form id="formBuscar">
+      <input name="email" type="email" placeholder="Correo de la persona" required>
+      <button>Buscar</button>
+    </form>
+  </div>
+
+  <pre id="respuesta"></pre>
+
+  <script>
+    function mostrarCrear() {
+      document.getElementById('crear').style.display = 'block';
+      document.getElementById('buscar').style.display = 'none';
+    }
+    function mostrarBuscar() {
+      document.getElementById('buscar').style.display = 'block';
+      document.getElementById('crear').style.display = 'none';
+    }
+    document.getElementById('formCrear').onsubmit = async e => {
+      e.preventDefault();
+      const datos = Object.fromEntries(new FormData(e.target));
+      const res = await fetch('/crear', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+      const json = await res.json();
+      document.getElementById('respuesta').textContent = json.respuesta;
+    };
+    document.getElementById('formBuscar').onsubmit = async e => {
+      e.preventDefault();
+      const datos = Object.fromEntries(new FormData(e.target));
+      const res = await fetch('/buscar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+      const json = await res.json();
+      document.getElementById('respuesta').textContent = json.respuesta;
+    };
+  </script>
+
+  <footer>
+    <p><strong>Reg\u00e1lale lo que le queda bien.</strong><br>TryOnMe.com</p>
+  </footer>
+</body>
+</html>

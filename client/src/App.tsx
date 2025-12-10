@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import IntelligentSystem from "./components/IntelligentSystem";
 import DemoBrands from "./pages/DemoBrands";
+import TryOnPremium from "./components/TryOnPremium";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -14,6 +15,7 @@ function Router() {
     <Switch>
       <Route path={"\\"} component={Home} />
       <Route path={"/demo-brands"} component={DemoBrands} />
+      <Route path={"/premium"} component={TryOnPremium} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -37,6 +37,7 @@ queryClient.getMutationCache().subscribe(event => {
   }
 });
 
+// TRPC client con manejo de errores para modo estático
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
@@ -46,6 +47,10 @@ const trpcClient = trpc.createClient({
         return globalThis.fetch(input, {
           ...(init ?? {}),
           credentials: "include",
+        }).catch(err => {
+          // Silenciar errores de conexión en modo estático
+          console.warn('[TRPC] Backend not available (static mode)', err.message);
+          return new Response(JSON.stringify({ error: 'Static mode' }), { status: 503 });
         });
       },
     }),

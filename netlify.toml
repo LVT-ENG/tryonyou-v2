@@ -1,0 +1,10 @@
+[build]
+  # Use npm to ensure the local Vite binary is resolved correctly
+  command = "npm run build"
+  publish = "public"
+  base = "04_Scripts_Produccion"
+
+[[redirects]]
+  from = "/"
+  to = "/estructura.html"
+  status = 200

@@ -1,0 +1,515 @@
+{
+  "project": {
+    "name": "tryon-app",
+    "version": "1.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview",
+      "start": "vite preview",
+      "test": "jest",
+      "postinstall": "npm run build && vercel --prod"
+    },
+    "dependencies": [
+      "@notionhq/client",
+      "@vercel/analytics",
+      "@vercel/speed-insights",
+      "axios",
+      "csv-parser",
+      "dotenv",
+      "https-proxy-agent",
+      "openai",
+      "playwright"
+    ],
+    "devDependencies": [
+      "jest",
+      "vite"
+    ],
+    "engines": {
+      "node": ">=18.16.0"
+    },
+    "title": "TRY-ON",
+    "features": [
+      "Multi-dimensional comparison: fit + emotion + aesthetics",
+      "Open to all brands, with LIVER 'IT as premium showcase",
+      "Data is private, ethical and encrypted"
+    ],
+    "endpoints": [
+      "https://tryonyou.app`",
+      "https://app.tryonyou.app`",
+      "https://api.tryonyou.app`",
+      "https://gpt.tryonyou.app`"
+    ]
+  },
+  "agents": {
+    "documented": {
+      "Agentes en `agents/`": [
+        {
+          "name": "DeployScriptMaster",
+          "description": "despliega la aplicación en Vercel."
+        },
+        {
+          "name": "TestRunnerGPT",
+          "description": "crea y ejecuta pruebas automatizadas."
+        },
+        {
+          "name": "RefactorAgentJS",
+          "description": "refactoriza código JavaScript redundante."
+        },
+        {
+          "name": "DocuGen",
+          "description": "genera documentación básica."
+        },
+        {
+          "name": "TaskResolver",
+          "description": "resuelve tareas rápidas a partir de un formato de texto."
+        },
+        {
+          "name": "compararTalla",
+          "description": "calcula la talla óptima según medidas del usuario."
+        },
+        {
+          "name": "recomendarPrenda",
+          "description": "sugiere la prenda ideal según ocasión y estilo."
+        },
+        {
+          "name": "reaccionPau",
+          "description": "genera reacciones de Pau."
+        },
+        {
+          "name": "validarDonacion",
+          "description": "comprueba si una prenda puede donarse."
+        },
+        {
+          "name": "generarAvatar",
+          "description": "crea un avatar 3D personalizado."
+        },
+        {
+          "name": "brandGuardian",
+          "description": "valida que el contenido sea coherente con la marca."
+        }
+      ],
+      "Agentes Virtuales": [
+        {
+          "name": "PMV – Project Manager Virtual",
+          "description": "coordina el sistema completo y activa otros agentes."
+        },
+        {
+          "name": "Content Pro – Redactor Web & Marca",
+          "description": "genera y traduce contenido web."
+        },
+        {
+          "name": "Ficha Técnica Master – Producción & CMS",
+          "description": "prepara fichas técnicas para fábrica y Shopify."
+        },
+        {
+          "name": "Proveedor Tracker – Control de Fábricas",
+          "description": "gestiona presupuestos y relaciones con proveedores."
+        },
+        {
+          "name": "RRSS Automator – Redes Sociales Inteligentes",
+          "description": "publica contenidos de forma automática."
+        },
+        {
+          "name": "Tester UX Web – Usuario Fantasma",
+          "description": "simula la navegación web y reporta mejoras."
+        },
+        {
+          "name": "Factory Master – Producción & Envío",
+          "description": "gestiona el material enviado a fábrica."
+        },
+        {
+          "name": "Mockup Artist – Visualizador de Producto",
+          "description": "crea mockups realistas con IA."
+        },
+        {
+          "name": "Checkout UX Master – Optimización del Checkout",
+          "description": "reduce la fricción en la compra."
+        },
+        {
+          "name": "Look Curator – Curador Estético + Comercial",
+          "description": "ordena productos y destaca los más atractivos."
+        },
+        {
+          "name": "Fit-AI Assistant – Asistente de Tallas Inteligente",
+          "description": "recomienda tallas ideales."
+        },
+        {
+          "name": "Brand Guardian – Guardián de la Identidad",
+          "description": "asegura la coherencia de la marca."
+        },
+        {
+          "name": "HR Supervisor – Recomendador de Agentes",
+          "description": "sugiere qué agentes activar y evalúa su rendimiento."
+        },
+        {
+          "name": "Control CEO – Resumen Diario",
+          "description": "entrega al CEO métricas diarias de pedidos, visitas y likes."
+        }
+      ],
+      "Agentes de Infraestructura y Mantenimiento": [
+        {
+          "name": "InfraDeployer",
+          "description": "analiza el entorno, elige la plataforma adecuada (Wix, Vercel o Render) y despliega la web. También puede generar dominios temporales y verificar la configuración DNS."
+        },
+        {
+          "name": "ContentSyncBot",
+          "description": "sincroniza textos, imágenes y vídeos desde `README_TRYONME_FINAL.txt` hacia Wix, Shopify e Instagram, detectando conflictos y notificando actualizaciones."
+        },
+        {
+          "name": "ShopifyAutoUploader",
+          "description": "importa el CSV `Descargar TRYONYOU_60_PRODUCTS.csv` diariamente para subir productos, asignar categorías y verificar stock."
+        },
+        {
+          "name": "HealthMonitor",
+          "description": "ejecuta `site_health_check.py` cada 5 minutos y envía alertas por email usando SMTP cuando la aplicación no responde."
+        },
+        {
+          "name": "AI_Optimizer",
+          "description": "mejora UX, UI y conversión a partir de `estructura.html`, `style.css` y `textos_home.txt`, reescribiendo textos y refinando el layout."
+        },
+        {
+          "name": "SupportAutoResponder",
+          "description": "responde automáticamente a consultas frecuentes del formulario de contacto en español, inglés y francés con un fallback humano."
+        },
+        {
+          "name": "BackupMaster",
+          "description": "realiza un backup semanal de `01_Web_Produccion`, `02_Shopify_Productos` y `03_Agentes_y_Prompts` hacia Google Drive y Dropbox, notificando si falla."
+        }
+      ]
+    },
+    "implemented": [
+      "brandGuardian",
+      "checkoutUXMaster",
+      "compararTalla",
+      "deployScriptMaster",
+      "docuGen",
+      "fitAIAssistant",
+      "generarAvatar",
+      "lookCurator",
+      "reaccionPau",
+      "recomendarPrenda",
+      "refactorAgentJS",
+      "snakeSimulationAgent",
+      "taskResolver",
+      "testRunnerGPT",
+      "validarDonacion"
+    ],
+    "exported": [
+      "deployScriptMaster",
+      "testRunnerGPT",
+      "refactorAgentJS",
+      "docuGen",
+      "taskResolver",
+      "compararTalla",
+      "recomendarPrenda",
+      "reaccionPau",
+      "validarDonacion",
+      "generarAvatar",
+      "brandGuardian",
+      "fitAIAssistant",
+      "lookCurator",
+      "checkoutUXMaster"
+    ],
+    "inconsistencies": {
+      "documented_but_not_implemented": true,
+      "summary": "# Agent Discrepancy Note\n\nAGENTS.md lists several \"Agentes Virtuales\" from line 20 onward:\n- PMV – Project Manager Virtual\n- Content Pro – Redactor Web & Marca"
+    }
+  },
+  "configuration": {
+    "environment": {
+      "VERCEL_TOKEN": "",
+      "VERCEL_PROJECT_NAME": "",
+      "VERCEL_ORG_ID": "",
+      "VERCEL_PROJECT_ID": "",
+      "PROJECT_NAME": "tryonyou-app",
+      "GITHUB_REPO_ID": "",
+      "NOTION_TOKEN": "",
+      "NOTION_DATABASE_ID": "",
+      "OPENAI_API_KEY": "",
+      "SHOPIFY_DOMAIN": "tryonme.myshopify.com",
+      "SHOPIFY_ACCESS_TOKEN": "",
+      "MAKE_WEBHOOK_URL": "https://make.com/tryonme/upload",
+      "DATASET_URL": "https://raw.githubusercontent.com/typicode/demo/master/db.json",
+      "HTTPS_PROXY": "",
+      "FORCE_FETCH": "",
+      "SNAKE_API_URL": "https://example.com/api",
+      "AUTOMA_EMAIL": "alerts@example.com",
+      "SITE_URL": "https://tryonyou.app",
+      "SMTP_HOST": "smtp.example.com",
+      "SMTP_PORT": "587",
+      "SMTP_USER": "your_username",
+      "SMTP_PASS": "your_password",
+      "NOTIFY_EMAIL": "alerts@example.com"
+    },
+    "vercel": {
+      "buildCommand": "npm install && npm run build",
+      "outputDirectory": "dist",
+      "framework": null
+    },
+    "vite": "import { defineConfig } from 'vite';\n\nexport default defineConfig({\n  root: '.',\n  server: {\n    port: 5173\n  },\n  build: {\n    outDir: 'dist'\n  }\n});\n",
+    "backup_config": {
+      "backup_system": {
+        "enabled": true,
+        "interval": "daily",
+        "retention": 7,
+        "snapshot_format": "timestamped-zip",
+        "storage": "https://storage.tryonyou.app/backups",
+        "webhook_on_backup": "https://api.tryonyou.app/webhooks/backup_complete"
+      },
+      "restore": {
+        "enabled": true,
+        "token_required": true,
+        "validation": "SHA256+TIMESTAMP",
+        "logs": "https://api.tryonyou.app/logs/restore",
+        "command": "curl -X POST https://api.tryonyou.app/restore --data '{\"token\":\"TRYONME_MASTER_TOKEN_6789\",\"timestamp\":1690453200,\"restore\":\"latest\"}'"
+      },
+      "log_tracking": {
+        "enabled": true,
+        "send_to_google_sheets": true,
+        "sheet_id": "1r7nBfTryonSheet0",
+        "auth": "GOOGLE_API_KEY_SECURE"
+      },
+      "diagnostics": {
+        "mode": "remote",
+        "url": "https://diagnostics.tryonyou.app/status?token=TRYONME_MASTER_TOKEN_6789"
+      },
+      "failover": {
+        "trigger": "restore",
+        "fallback_version": "v1.0.0"
+      },
+      "version_map": {
+        "current": "v1.2.3",
+        "previous": "v1.2.2",
+        "snapshot": "2025-07-25T00:00:00Z"
+      },
+      "security": {
+        "token": "TRYONME_MASTER_TOKEN_6789",
+        "hash_function": "SHA256",
+        "time_window": 300
+      }
+    },
+    "backup_master_config": {
+      "nombre": "BackupMaster",
+      "funciones": [
+        "backup automático semanal",
+        "subida a Google Drive"
+      ],
+      "carpetas_origen": [
+        "01_GSGENTEDS70_CORE",
+        "02_Web_InfraDeployer",
+        "03_Shopify_Uploader",
+        "04_UX_Optimizer",
+        "05_HealthMonitor",
+        "06_Automa_Flows",
+        "07_Support_AutoResponder",
+        "08_Backup_Master"
+      ],
+      "formato": "ZIP",
+      "frecuencia": "semanal",
+      "destinos": [
+        {
+          "plataforma": "Google Drive",
+          "tipo": "Service Account",
+          "autenticación": {
+            "client_email": "tryonme-backup-bot@tryonme-systems.iam.gserviceaccount.com",
+            "private_key_id": "REPLACE_WITH_KEY_ID",
+            "private_key": "-----BEGIN PRIVATE KEY-----\\nREPLACE_WITH_PRIVATE_KEY\\n-----END PRIVATE KEY-----\\n"
+          },
+          "carpeta_destino_drive": "TRYONME – SUPERAGENTS BACKUP",
+          "visibilidad": "privada",
+          "acceso_CEO": "rubén.espinar.10@icloud.com"
+        }
+      ],
+      "acciones": [
+        "comprimir carpetas en ZIP",
+        "conectar API Google Drive",
+        "subir archivo",
+        "verificar subida",
+        "enviar notificación si falla"
+      ]
+    },
+    "coordinator_config": {
+      "coordinador": {
+        "status": "active",
+        "version": "7.0",
+        "api_control": true,
+        "authorized_bots": [
+          "pau_emocional",
+          "fit_ai",
+          "checkout_recovery",
+          "notion_syncer",
+          "drive_organizer",
+          "invite_auto_accept_bot",
+          "agent_70",
+          "look_curator",
+          "checkout_ux_master",
+          "factory_master"
+        ],
+        "external_integrations": [
+          "shopify",
+          "vercel",
+          "stripe",
+          "airtable",
+          "make"
+        ]
+      }
+    }
+  },
+  "documentation": {
+    "files": [
+      "README.md",
+      "agent_guidance.md",
+      "agentes_basicos.md",
+      "automa_flows.md",
+      "automa_make_flow.md",
+      "backup_system.md",
+      "brevet_INPI_FR.md",
+      "demo_local.md",
+      "deployment_overview.md",
+      "despliegue.md",
+      "financial_infrastructure.md",
+      "flujo_automatizado_semanal.md",
+      "implementation_plan.md",
+      "instagram_story_autopost.md",
+      "instrucciones_zip.md",
+      "live_it_codex.md",
+      "make_scenarios.md",
+      "repository_structure.md",
+      "shopify_domain_setup.md",
+      "tryonme_agents_es.md",
+      "tryonme_es.md",
+      "unlock_netlify.md",
+      "unlock_shopify_password.md"
+    ],
+    "deployment_overview": "# Deployment Overview\n\nThis short document summarizes the key references for deploying **TryOnMe**.\nIt combines the relevant instructions from the Spanish and English guides so you\ncan quickly locate the latest resources.\n\n## Core Guides\n- [`docs/despliegue.md`](despliegue.md) – Spanish deployment guide.\n\n## Automation & Monitoring\n- Use the GitHub Actions workflow in `.github/workflows/health-check.yml` or a comparable scheduler to run `scripts/site_health_check.py` and your test suite regularly.\n- `scripts/auto_update.py` keeps datasets and Shopify products in sync.\n- `scripts/site_health_check.py` emails an alert if the site becomes unreachable. Configure the SMTP variables and `NOTIFY_EMAIL`.\n- Automa flows are documented in [`docs/automa_flows.md`](automa_flows.md) and [`docs/automa_make_flow.md`](automa_make_flow.md) if you prefer browser or Make‑based automation.\n\n## SEO Validation\nRun `python scripts/seo_audit.py` to check that all HTML files contain\n`title`, `description`, `viewport` and canonical tags.\n\n## API & Environment Variables\nSet `OPENAI_API_KEY`, `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` and `NOTIFY_EMAIL` in the environment before deploying. The server and health‑check script handle missing values gracefully, but some features will be disabled without them.\nYou can test OpenAI connectivity by running:\n\n```bash\nnode scripts/openai_bedtime_story.js\n```\nIt should print a short story without errors.\n\n## Useful Commands\n```bash\nnpm install --ignore-scripts\npip install -r requirements.txt\nnpm test && pytest -q\n```\n\n## Future Integrations\nWhen new OpenAI models or IP services become available, update `server.js` and dependencies, then rerun `npm test` and `pytest` before redeploying.\n\nThis overview should help you navigate the repository and deploy with\nconfidence.\n",
+    "repository_structure": "# Repository Structure Overview\n\nThis document summarizes the purpose of the main directories so it is easier to locate the latest files before deployment.\n\n- `index.html` – Main landing page with updated SEO tags. The build process outputs a copy into `public/`.\n- `public/` – Contains the production build generated by Vite. Files inside are overwritten on each build.\n- `frontend/` – Legacy demo kept for reference. No longer used in the deploy script.\n- `agents/` – JavaScript agents including `brandGuardian` and `deployScriptMaster`.\n- `scripts/` – Utility scripts for deployment, Shopify sync, SEO validation and site monitoring. Key helpers include `seo_audit.py`, `site_health_check.py` for email alerts, and `auto_update.py` to pull new datasets.\n- `docs/` – Documentation of deployment steps, automation flows and project guides. Start with `docs/README.md` and `docs/deployment_consolidated.md` for the most up‑to‑date instructions.\n- `03_Agentes_Inteligentes/` and `04_Scripts_Produccion/` – Older shell scripts, now moved to `archive/` since their tasks are handled by `deploy/` and `scripts/`.\n\nWhen reviewing duplicate files, prefer those in the root and `scripts/` directories, as they are referenced by the deployment guides.\n",
+    "agentes_basicos": "## Agentes del sistema TRYONME\n\n### 1. DeployScriptMaster\n🔹 Despliega el proyecto automáticamente a Vercel desde GitHub.\n\n### 2. TestRunnerGPT\n🔹 Crea un entorno de pruebas automatizado.\n\n### 3. RefactorAgentJS\n🔹 Refactoriza funciones JS redundantes.\n\n### 4. DocuGen\n🔹 Genera esta documentación con estructura para README o Notion.\n\n### Cómo usar los agentes TRYONME\n1. Ejecuta 'DeployScriptMaster' para desplegar en Vercel\n2. Corre 'TestRunnerGPT' para validar el entorno\n3. Lanza 'RefactorAgentJS' para limpiar el código\n4. Usa 'DocuGen' para documentarlo todo y entregar\n"
+  },
+  "deployment": {
+    "deploy-auto.sh": "#!/bin/bash\n\n# === DEPLOY-AUTO.SH - Crea upload.js si no existe y despliega ===\n# Rubén Espinar – Proyecto TRYONYOU\n\nset -e\n\n# VERCEL_TOKEN se debe definir como variable de entorno\nTOKEN=\"${VERCEL_TOKEN:-}\"\n\n# Comprobación básica del token\nif [ -z \"$TOKEN\" ]; then\n  echo \"❌ VERCEL_TOKEN no está definido. Abortando despliegue.\" >&2\n  exit 1\nfi\n\n# Asegurar que la CLI de Vercel está instalada\nif ! command -v vercel >/dev/null 2>&1; then\n  echo \"⚙️  Instalando Vercel CLI...\"\n  npm install -g vercel >/dev/null 2>&1\nfi\n\n# Crear api/upload.js si no existe\nif [ ! -f \"api/upload.js\" ]; then\n  echo \"📄 Generando archivo api/upload.js...\"\n  cat <<'EOV' > api/upload.js\nexport default function handler(req, res) {\n  if (req.method !== 'POST') {\n    return res.status(405).json({ error: 'Method Not Allowed' });\n  }\n\n  // Aquí puedes insertar lógica para procesar productos u otra info\n  res.status(200).json({ message: 'Upload recibido correctamente.' });\n}\nEOV\n  echo \"✅ upload.js creado.\"\nelse\n  echo \"✔️ upload.js ya existe.\"\nfi\n\n# Despliegue automático\necho \"🌐 Iniciando despliegue con Vercel...\"\nif vercel --token=\"$TOKEN\" --prod --yes --confirm; then\n  echo \"🎉 Despliegue exitoso. Proyecto TRYONYOU online.\"\nelse\n  echo \"❌ Error en el despliegue.\" >&2\n  exit 1\nfi\n",
+    "deploy-manual.sh": "#!/bin/bash\n\n# Fallback deployment script when automated CI deploys fail\n\nset -e\n\nif ! command -v vercel >/dev/null 2>&1; then\n  echo \"⚙️  Installing Vercel CLI...\"\n  npm install -g vercel >/dev/null 2>&1\nfi\n\nif [ -z \"$VERCEL_TOKEN\" ]; then\n  echo \"❌ VERCEL_TOKEN no definido\" >&2\n  exit 1\nfi\n\necho \"🚀 Deploy manual a Vercel...\"\nvercel --prod --yes --token \"$VERCEL_TOKEN\"\n\n",
+    "makefile": "# Makefile – ROOT LEVEL (para ejecución por Codex, Vercel y agentes)\n\n# Despliegue completo con control de errores\ndeploy:\n\t@echo \"🚀 Desplegando proyecto completo...\"\n\tnpm install || { echo \"❌ Error en instalación de dependencias\"; exit 1; }\n\tnpm run build || { echo \"❌ Error en build del proyecto\"; exit 1; }\n\t@if grep -q 'next export' package.json; then echo \"📦 Exportando proyecto...\"; npm run export || { echo \"❌ Error en export\"; exit 1; }; fi\n\tnpx vercel --prod || { echo \"❌ Error al desplegar en Vercel\"; exit 1; }\n\t@echo \"✅ Proyecto desplegado correctamente.\"\n\n# Registro en Notion (requiere script y variables definidas)\nnotion:\n\t@echo \"📝 Registrando en Notion...\"\n\tnode scripts/deploy_and_log.js || { echo \"❌ Error al registrar en Notion\"; exit 1; }\n\n# Publicar en Shopify y activar trigger externo\nshopify:\n\t@echo \"️ Publicando producto en Shopify...\"\n\tnode scripts/upload_to_shopify.js || { echo \"❌ Error al subir a Shopify\"; exit 1; }\n\tcurl -X POST -H 'Content-Type: application/json' -d '{}' https://tu-servidor.onrender.com/upload || { echo \"❌ Error al activar trigger\"; exit 1; }\n\n# Ejecutar todo de forma secuencial\nall: deploy notion shopify\n\n.PHONY: deploy notion shopify all\n"
+  },
+  "products": {
+    "files": [
+      "casa_pavo_real.json",
+      "tryon-products.csv",
+      "tryon-products.json"
+    ],
+    "casa_pavo_real": [
+      {
+        "name": "Camiseta Pavo Real Azul",
+        "category": "camisetas",
+        "img": "peacock_shirt.webp",
+        "description": "Camiseta inspirada en el plumaje azul del pavo real."
+      },
+      {
+        "name": "Bolso Alas de Pavo",
+        "category": "bolsos",
+        "img": "peacock_bag.webp",
+        "description": "Bolso con estampado de alas de pavo real para un look elegante."
+      },
+      {
+        "name": "Vestido Pavo Real Arlequín",
+        "category": "vestidos",
+        "img": "peacock_dress.webp",
+        "description": "Vestido ligero con patrones arlequín inspirados en el pavo real."
+      },
+      {
+        "name": "Sombrero Plumas Reales",
+        "category": "sombreros",
+        "img": "peacock_hat.webp",
+        "description": "Sombrero adornado con plumas sintéticas de pavo real."
+      }
+    ],
+    "tryon-products": [
+      {
+        "name": "Classic Leather Moto Jacket",
+        "category": "Jackets",
+        "img": "https://via.placeholder.com/600x800",
+        "description": "Premium genuine leather moto jacket with tailored fit and edge."
+      },
+      {
+        "name": "Urban Bomber Jacket",
+        "category": "Jackets",
+        "img": "https://via.placeholder.com/600x800",
+        "description": "Lightweight nylon bomber for casual streetwear comfort and style."
+      },
+      {
+        "name": "Casual Day Dress",
+        "category": "Dresses",
+        "img": "https://via.placeholder.com/600x800",
+        "description": "Relaxed fit cotton dress. Minimalist and flattering for daily wear."
+      },
+      {
+        "name": "Men’s Formal White Shirt",
+        "category": "Shirts",
+        "img": "https://via.placeholder.com/600x800",
+        "description": "Crisp cotton shirt with sharp collar and tailored cuffs."
+      },
+      {
+        "name": "High-Top Sneakers",
+        "category": "Shoes",
+        "img": "https://via.placeholder.com/600x800",
+        "description": "Canvas high-tops with cushioned soles and urban style."
+      },
+      {
+        "name": "Product 1",
+        "category": "Jackets",
+        "img": "https://tryonyou.app/assets/img/products/product-1.jpg",
+        "description": "Descripción del producto"
+      }
+    ],
+    "shopify_csv": "category,img,id,description,name,price,title\r\nJackets,https://via.placeholder.com/600x800,,Premium genuine leather moto jacket with tailored fit and edge.,Classic Leather Moto Jacket,,\r\nJackets,https://via.placeholder.com/600x800,,Lightweight nylon bomber for casual streetwear comfort and style.,Urban Bomber Jacket,,\r\nDresses,https://via.placeholder.com/600x800,,Relaxed fit cotton dress. Minimalist and flattering for daily wear.,Casual Day Dress,,\r\nShirts,https://via.placeholder.com/600x800,,Crisp cotton shirt with sharp collar and tailored cuffs.,Men’s Formal White Shirt,,\r\nShoes,https://via.placeholder.com/600x800,,Canvas high-tops with cushioned soles and urban style.,High-Top Sneakers,,\r\n,,1,,,9.99,Test Product\r\nJackets,https://tryonyou.app/assets/img/products/product-1.jpg,SKU001,Descripción del producto,Product 1,180.00,Product 1\n"
+  },
+  "metadata": {
+    "home_texts": "Dale Vida a Tu Estilo\nEncuentra la prenda perfecta con TryOnMe\nPrueba Ahora\n",
+    "manifest": {
+      "name": "TryOnMe",
+      "short_name": "TryOnMe",
+      "start_url": "./index.html",
+      "display": "standalone",
+      "background_color": "#ffffff",
+      "theme_color": "#ff4081",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    },
+    "scripts": [
+      "auto_update.py",
+      "extract_important_info.js",
+      "ip_checker.py",
+      "openai_model_check.py",
+      "seo_audit.py",
+      "site_health_check.py"
+    ],
+    "automa_flows": [
+      "automa_tryonyou_flow.json",
+      "drive_sync_flow.automa.json",
+      "instagram_pau_publisher.automa.json",
+      "paw_armario_inteligente_solidario.automa.json",
+      "sheets_triggered_post.automa.json",
+      "shopify_csv_upload.automa.json",
+      "shopify_uploader.automa.json",
+      "site_health_email.automa.json"
+    ],
+    "statistics": {
+      "javascript_files": 8,
+      "json_files": 8,
+      "markdown_files": 3,
+      "python_files": 3,
+      "html_files": 8,
+      "css_files": 1
+    }
+  }
+}

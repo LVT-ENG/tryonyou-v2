@@ -1,0 +1,12 @@
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment variables
+.env
+
+# build output
+build/
+dataset.json
+*.zip

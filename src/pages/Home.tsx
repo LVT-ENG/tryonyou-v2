@@ -25,6 +25,9 @@ export default function Home() {
             <Link href="/demo-brands" className="text-sm hover:text-gold transition">
               Demo for Brands
             </Link>
+            <Link href="/virtual-tryon" className="text-sm hover:text-gold transition">
+              Virtual Try-On
+            </Link>
             {isAuthenticated ? (
               <>
                 <span className="text-sm text-gray-400">{user?.name}</span>

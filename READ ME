@@ -1,0 +1,26 @@
+```bash
+tryon-app/
+├── README.md
+├── .gitignore
+├── firebase.json
+├── .make-config.json
+├── /products/
+│   ├── tryon-products.csv
+│   ├── tryon-products.json
+│   ├── liveit-products.csv
+│   ├── classic-leather-moto-jacket
+│   ├── urban-bomber-jacket
+│   ├── casual-day-dress
+│   ├── mens-formal-white-shirt
+│   ├── high-top-sneakers
+│   ├── vintage-denim-jacket
+│   ├── floral-summer-sundress
+│   ├── elegant-evening-gown
+│   ├── comfort-stretch-leggings
+│   └── graphic-cotton-t-shirt
+├── /scripts/
+│   ├── sync_to_shopify.py         ← Automatiza subida de productos a Shopify
+│   └── generate_seo_meta.py       ← Genera títulos/meta SEO desde prompts
+└── /prompt_templates/
+    └── seo_daily_prompt.txt       ← Prompt actualizado diariamente vía Make
+```

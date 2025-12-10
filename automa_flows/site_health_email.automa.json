@@ -1,0 +1,17 @@
+{
+  "name": "Site Health Email",
+  "agent": "HealthMonitor",
+  "trigger": {
+    "type": "interval",
+    "interval": 360
+  },
+  "actions": [
+    {
+      "type": "run-script",
+      "command": "python scripts/site_health_check.py"
+    }
+  ],
+  "version": "1.0",
+  "post_push_main": true
+}
+

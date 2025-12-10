@@ -1,0 +1,12 @@
+.topbar{position:sticky;top:0;display:flex;justify-content:space-between;gap:16px;padding:12px 20px;background:#101214cc;border-bottom:1px solid #2a2d31}
+.hero{padding:80px 20px;text-align:center}
+.hero h1{font-size:42px;margin:0 0 8px}
+.hero p{opacity:.9;margin:0 0 20px}
+.cta{display:flex;gap:12px;justify-content:center}
+.cta button{padding:12px 18px;border:0;background:var(--gold);color:#000;border-radius:8px;font-weight:700}
+.cta .ghost{padding:12px 18px;border:1px solid var(--gold);border-radius:8px}
+.claims{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:30px 20px;max-width:1100px;margin:0 auto}
+.card{border:1px solid #2b2e33;border-radius:10px;padding:14px;background:#171a1f}
+.footer{padding:30px 20px;text-align:center;opacity:.8}
+.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:20px}
+.modal-body{background:#13161b;border:1px solid #2b2e33;border-radius:12px;max-width:560px;width:100%;padding:20px}

@@ -1,0 +1,56 @@
+# Telegram Notification Configuration
+# TRYONYOU ABVETOS Status Updates
+
+# Bot Configuration
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+TELEGRAM_CHAT_ID=your_chat_id_here
+
+# Notification Settings
+NOTIFY_ON_DEPLOY=true
+NOTIFY_ON_ERROR=true
+NOTIFY_ON_STATUS_CHANGE=true
+NOTIFY_DAILY_SUMMARY=true
+
+# Message Templates
+# Available variables: {status}, {date}, {uptime}, {deployments}, {coverage}
+
+DEPLOY_SUCCESS_MSG=✅ Deployment successful for TRYONYOU ABVETOS
+Deploy time: {date}
+Status: {status}
+Uptime: {uptime}
+
+DEPLOY_FAILED_MSG=❌ Deployment failed for TRYONYOU ABVETOS
+Error time: {date}
+Check logs for details
+
+STATUS_UPDATE_MSG=📊 TRYONYOU ABVETOS Status Update
+Date: {date}
+Status: {status}
+Uptime: {uptime}
+Deployments: {deployments}
+Coverage: {coverage}
+
+DAILY_SUMMARY_MSG=📅 Daily Summary - TRYONYOU ABVETOS
+Date: {date}
+System Status: {status}
+Key Metrics:
+• Uptime: {uptime}
+• Deploy Success: {deployments}
+• Test Coverage: {coverage}
+
+# Notification Schedule
+DAILY_SUMMARY_TIME=09:00
+WEEKLY_REPORT_DAY=Monday
+WEEKLY_REPORT_TIME=10:00
+
+# Alert Thresholds
+UPTIME_ALERT_THRESHOLD=99.0
+DEPLOY_SUCCESS_ALERT_THRESHOLD=90.0
+COVERAGE_ALERT_THRESHOLD=75.0
+
+# Emergency Contacts (CSV format)
+EMERGENCY_CONTACTS=@ceo,@tech_lead,@devops_lead
+
+# Quiet Hours (no notifications except critical)
+QUIET_HOURS_START=22:00
+QUIET_HOURS_END=08:00

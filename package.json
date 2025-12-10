@@ -1,0 +1,8 @@
+{
+  "name": "tryon-app",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "vercel --prod --confirm --yes --token=$VERCEL_TOKEN"
+  },
+  "dependencies": {}
+}

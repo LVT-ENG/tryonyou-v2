@@ -1,0 +1,16 @@
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment variables
+.env
+
+# build output
+build/
+dataset.json
+__pycache__/
+venv/
+scripts/__pycache__/
+tests/__pycache__/
+

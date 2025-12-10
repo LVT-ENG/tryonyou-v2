@@ -1,0 +1,17 @@
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment variables
+.env
+
+# build output
+build/
+public/assets/
+dataset.json
+data/donation_status.json
+
+# Python cache
+__pycache__/
+*/__pycache__/

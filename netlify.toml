@@ -1,0 +1,7 @@
+[build]
+  base = "04_Scripts_Produccion"
+  command = "vite build"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"

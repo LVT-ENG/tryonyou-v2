@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Camiseta Pavo Real Azul",
+    "category": "camisetas",
+    "img": "peacock_shirt.webp",
+    "description": "Camiseta inspirada en el plumaje azul del pavo real."
+  },
+  {
+    "name": "Bolso Alas de Pavo",
+    "category": "bolsos",
+    "img": "peacock_bag.webp",
+    "description": "Bolso con estampado de alas de pavo real para un look elegante."
+  },
+  {
+    "name": "Vestido Pavo Real Arlequín",
+    "category": "vestidos",
+    "img": "peacock_dress.webp",
+    "description": "Vestido ligero con patrones arlequín inspirados en el pavo real."
+  },
+  {
+    "name": "Sombrero Plumas Reales",
+    "category": "sombreros",
+    "img": "peacock_hat.webp",
+    "description": "Sombrero adornado con plumas sintéticas de pavo real."
+  }
+]

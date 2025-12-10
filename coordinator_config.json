@@ -1,0 +1,22 @@
+{
+  "coordinador": {
+    "status": "active",
+    "version": "7.0",
+    "api_control": true,
+    "authorized_bots": [
+      "pau_emocional",
+      "fit_ai",
+      "checkout_recovery",
+      "notion_syncer",
+      "drive_organizer",
+      "invite_auto_accept_bot"
+    ],
+    "external_integrations": [
+      "shopify",
+      "vercel",
+      "stripe",
+      "airtable",
+      "make"
+    ]
+  }
+}

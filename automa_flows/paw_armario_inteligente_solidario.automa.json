@@ -1,0 +1,45 @@
+{
+  "name": "PAW_Armario_Inteligente_Solidario",
+  "version": "1.0",
+  "modules": [
+    {
+      "id": "init_user_session",
+      "type": "start",
+      "description": "Inicia la sesi\u00f3n del usuario y carga su armario virtual."
+    },
+    {
+      "id": "upload_garment",
+      "type": "image_analysis",
+      "input": "image_upload",
+      "output": ["color_detected", "garment_type", "length", "width"],
+      "description": "Escanea la prenda del usuario para generar su ficha."
+    },
+    {
+      "id": "store_to_armario",
+      "type": "armario_db_insert",
+      "input": ["user_id", "color_detected", "garment_type", "length", "width"],
+      "description": "Guarda la prenda escaneada en el armario digital del usuario."
+    },
+    {
+      "id": "recommendation_trigger",
+      "type": "PAW_react",
+      "input": "garment_info",
+      "output": ["match_found", "recommended_items"],
+      "description": "PAW analiza la prenda y recomienda combinaciones."
+    },
+    {
+      "id": "libancoint_check",
+      "type": "PAW_evaluate_quality",
+      "input": "garment_info",
+      "output": ["discard_flag", "reason"],
+      "description": "PAW determina si la prenda debe ir al armario solidario."
+    },
+    {
+      "id": "send_to_solidarity",
+      "type": "libancoint_dispatch",
+      "condition": "discard_flag = true",
+      "input": ["user_id", "garment_info"],
+      "description": "Env\u00eda la prenda descartada al Armario Solidario."
+    }
+  ]
+}

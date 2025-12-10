@@ -1,0 +1,20 @@
+{
+  "name": "TryOnYou AutoSync",
+  "agent": "InfraDeployer",
+  "trigger": {
+    "type": "interval",
+    "interval": 60
+  },
+  "actions": [
+    {
+      "type": "http-request",
+      "method": "POST",
+      "url": "https://tryonyou.vercel.app/api/upload",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": "{ \"sku\": \"SKU123\", \"nombre\": \"Chaqueta 3D\", \"precio\": 199.99 }",
+      "bodyType": "json"
+    }
+  ]
+}

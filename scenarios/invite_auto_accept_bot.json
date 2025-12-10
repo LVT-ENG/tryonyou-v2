@@ -1,0 +1,45 @@
+{
+  "agent_name": "Invite Auto-Accept Bot",
+  "trigger": {
+    "type": "email_monitor",
+    "email_account": "admin@tryonyou.app",
+    "conditions": [
+      {
+        "subject_matches_any": [
+          "You're invited", "has invited you", "Accept invitation", "Confirm your account",
+          "Verifica tu correo", "Join the project", "Te han invitado", "Accepter l'invitation",
+          "Confirmer votre compte", "Activa tu cuenta"
+        ]
+      },
+      {
+        "from_matches_any": [
+          "codex", "vercel", "github", "shopify", "wix", "notion", "zapier", "make.com",
+          "openai", "google", "tryonyou.app"
+        ]
+      }
+    ]
+  },
+  "actions": [
+    {
+      "type": "click_button_in_email",
+      "button_label_keywords": ["accept", "confirm", "join", "verify", "accepter", "confirmer", "activar"]
+    },
+    {
+      "type": "log_event",
+      "message": "✅ Invitación detectada y aceptada automáticamente."
+    },
+    {
+      "type": "notify_user",
+      "method": "email+whatsapp",
+      "message": "Se ha aceptado automáticamente una invitación enviada a admin@tryonyou.app. Todo listo para continuar."
+    }
+  ],
+  "status": "active",
+  "failsafe": {
+    "if_error": {
+      "type": "forward_email",
+      "to": "rubensanzburo@gmail.com",
+      "note": "⚠️ No se pudo aceptar la invitación automáticamente. Por favor, revísala manualmente."
+    }
+  }
+}

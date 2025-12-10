@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
+    },
+    "api/*.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "github": {
+    "autoJobCancellation": true
+  },
+  "routes": [
+    { "src": "/api/fetch-data", "dest": "api/fetch-data.js" },
+    { "src": "/api/process", "dest": "api/process.py" }
+  ]
+}

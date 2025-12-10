@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "build": {
+    "src": "index.js",
+    "use": "@vercel/node"
+  },
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key",
+    "SHOPIFY_DOMAIN": "tryonme.myshopify.com",
+    "SHOPIFY_ACCESS_TOKEN": "@shopify_token",
+    "MAKE_WEBHOOK_URL": "https://make.com/tryonme/upload"
+  },
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

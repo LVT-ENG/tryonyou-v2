@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <title>TryOnMe – Discover Your Fit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="TryOnMe Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#talla">Descubre tu talla</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video autoplay loop muted playsinline class="video-fondo">
+      <source src="video_portada.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>Measure. Match. Live it.</h1>
+      <a href="https://tu-servidor.onrender.com/upload" class="cta-button">Descubre tu talla</a>
+    </div>
+  </section>
+
+  <section id="productos" class="productos">
+    <h2>Productos destacados</h2>
+    <div class="product-grid" id="product-grid"></div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year">2025</span> TryOnMe. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

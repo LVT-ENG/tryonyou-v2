@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TryOnMe – Your Perfect Fit. Zero Returns.</title>
+  <meta name="description" content="AI-powered fashion fitting room. Discover the style that actually fits you, no returns, just confidence." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="TryOnMe" />
+  <link rel="canonical" href="https://tryonyou.app/" />
+  <link rel="icon" href="/assets/favicon-B_SY1GJM.ico" type="image/x-icon" />
+  <!-- Open Graph (Facebook / Instagram) -->
+  <meta property="og:title" content="TryOnMe – AI fitting for clothes that fit." />
+  <meta property="og:description" content="The intelligent fashion experience. Goodbye returns. Hello perfect fit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tryonyou.app/" />
+  <meta property="og:image" content="https://tryonyou.app/assets/og-image.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TryOnMe – AI Fitting Experience" />
+  <meta name="twitter:description" content="Say goodbye to sizing mistakes. Try it on virtually." />
+  <meta name="twitter:image" content="https://tryonyou.app/assets/og-image.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-Btqvgg-v.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D_el9FVG.css">
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="TryOnYou" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#recomienda">Recomendados</a></li>
+        <li><a href="#avatar">Avatar 3D</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video id="intro-video" autoplay muted loop playsinline class="video-fondo">
+      <source src="/video_portada.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+      <h1>Measure. Match. Live it.</h1>
+      <a href="#contacto" class="cta-button">Start Your TryOn</a>
+      <a href="https://tryonyou.app/products/product-1" target="_blank" style="display:inline-block;padding:10px 20px;background:#000;color:#fff;text-decoration:none;font-weight:bold;border-radius:5px;">
+        Probar compra silenciosa
+      </a>
+    </div>
+  </section>
+
+  <section id="recomienda" class="carousel">
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 1"></div>
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 2"></div>
+    <div class="carousel-item"><img src="https://placehold.co/200x300" alt="Look 3"></div>
+  </section>
+
+  <section id="avatar" class="avatar-section">
+    <h2>Your Avatar</h2>
+    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" autoplay ar interaction-policy="allow-when-focused" camera-controls></model-viewer>
+  </section>
+
+  <section id="contacto" class="form-section">
+    <h2>Join the Experience</h2>
+    <form>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="submit" value="Send" />
+    </form>
+  </section>
+
+  <!-- MÓDULO DE FRASES DE PAU + NOTIFICACIONES CULTURALES ELEGANTES -->
+  <section id="frases-notificaciones" class="frases-section">
+    <div class="header">
+      <h2>Frases de Pau &amp; Notificaciones</h2>
+      <p>Pau te habla con estilo, cuando lo necesitas… y cuando no.</p>
+    </div>
+
+    <div class="notificaciones-pau">
+      <h3>Frases programadas según eventos:</h3>
+      <ul>
+        <li><strong>Lunes por la mañana:</strong> “Levántate. Tu ropa también.”</li>
+        <li><strong>Cuando abres la app por 3ª vez en el día:</strong> “¿Buscas inspiración o atención? Te doy ambas.”</li>
+        <li><strong>Un mes sin limpiar el armario:</strong> “Esto ya no es moda, es archivo municipal.”</li>
+        <li><strong>Día especial (cumpleaños):</strong> “Hoy brillas. No seas tímido. Ni soso.”</li>
+        <li><strong>Cuando miras demasiado una misma prenda:</strong> “Sí. Esa. Cómprala o suéltala. Pero decide ya.”</li>
+      </ul>
+    </div>
+
+    <div class="frase-random">
+      <h3>Frase aleatoria de Pau:</h3>
+      <button onclick="fraseRandom()">Dímela, Pau</button>
+      <blockquote id="outputFrase">“Pau está cargando sarcasmo…”</blockquote>
+    </div>
+  </section>
+
+  <!-- BLOQUE FUSIONADO FINAL · PANELES PAU + INTERACCIÓN + FEEDBACK -->
+  <section id="panel-pau-feedback" class="feedback-section">
+    <div class="header">
+      <h2>Feedback de Pau a Tus Looks</h2>
+      <p>Sube lo que llevas. Pau tiene algo que decir… siempre.</p>
+    </div>
+
+    <div class="upload-look">
+      <label for="lookImg">Sube una imagen de tu look:</label>
+      <input type="file" id="lookImg" accept="image/*" />
+      <button onclick="analizarLook()">Analizar con Pau</button>
+    </div>
+
+    <div class="resultado-pau">
+      <img src="pau-juicio.png" alt="Pau opinando" class="pau-feedback" />
+      <blockquote id="respuestaPau">
+        “Esto parece un experimento sin final feliz. Pero aún hay tiempo.”
+      </blockquote>
+    </div>
+
+    <div class="niveles-pau">
+      <h3>Estado actual de tu evolución estilística:</h3>
+      <ul>
+        <li>✅ Nivel 1: Te vistes con intención (aunque a veces miedo)</li>
+        <li>🔥 Nivel 2: Has mezclado patrones con valor (y Pau no te ha parado)</li>
+        <li>👑 Nivel 3: Ya no necesitas validación. Pero Pau igual opina.</li>
+      </ul>
+    </div>
+
+    <div class="ritual-reinicio">
+      <h3>¿Quieres empezar de cero?</h3>
+      <button onclick="reiniciarTryOn()">Eliminar mi TryOn</button>
+      <blockquote id="fraseReinicio">
+        “Esto no es un adiós. Es un: ‘Hazlo mejor esta vez.’” – Pau
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>© <span id="copyright-year"></span> TryOnMe. All rights reserved.</footer>
+</body>
+</html>

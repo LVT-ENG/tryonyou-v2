@@ -1,0 +1,12 @@
+[build]
+  command = "vite build"
+  publish = "public"
+  base = "04_Scripts_Produccion"
+
+[build.environment]
+  NODE_VERSION = "18.16.0"
+
+[[redirects]]
+  from = "/"
+  to = "/estructura.html"
+  status = 200

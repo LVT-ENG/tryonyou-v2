@@ -1,0 +1,25 @@
+{
+  "name": "Shopify CSV Upload",
+  "description": "Carga automática de productos CSV a Shopify cada día a las 09:00",
+  "version": 1,
+  "triggers": [
+    {
+      "type": "cron",
+      "options": {
+        "cron": "0 9 * * *"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "start",
+      "type": "log",
+      "options": {
+        "message": "Inicio de carga automática de productos"
+      }
+    }
+  ],
+  "settings": {
+    "darkMode": true
+  }
+}

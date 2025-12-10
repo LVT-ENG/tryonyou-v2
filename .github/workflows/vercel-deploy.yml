@@ -1,0 +1,50 @@
+name: Vercel Deploy
+
+on:
+  push:
+    branches: [main, production]
+    paths:
+      - 'dist/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-to-vercel:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "⬇️ Checkout del repositorio"
+      uses: actions/checkout@v3
+
+    - name: "📦 Setup Node.js"
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: "🛠 Instalar Vercel CLI"
+      run: npm install -g vercel
+
+    - name: "📥 Instalar dependencias"
+      run: npm ci
+
+    - name: "📋 Ejecutar pruebas JavaScript"
+      run: npm test
+
+    - name: "🐍 Setup Python"
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: "📥 Instalar dependencias de Python"
+      run: pip install -r requirements.txt
+
+    - name: "✅ Ejecutar pruebas Python"
+      run: pytest -q
+
+    - name: "🔨 Construir proyecto"
+      run: npm run build
+
+    - name: "🔑 Configurar y autenticar con Vercel"
+      run: |
+        vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}

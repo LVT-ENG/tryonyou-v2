@@ -1,0 +1,15 @@
+{
+  "name": "Site Health Email",
+  "trigger": {
+    "type": "interval",
+    "interval": 15
+  },
+  "actions": [
+    {
+      "type": "run-script",
+      "command": "python scripts/site_health_check.py"
+    }
+  ],
+  "version": "1.0"
+}
+

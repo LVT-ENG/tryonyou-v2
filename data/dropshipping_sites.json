@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Example Factory A",
+    "url": "https://example.com/api/products",
+    "selectors": {
+      "item": ".product",
+      "name": ".title",
+      "price": ".price"
+    },
+    "fallback": [
+      {
+        "name": "Sample Tee",
+        "price": "$10",
+        "print_on_demand": true
+      }
+    ]
+  },
+  {
+    "name": "Example Factory B",
+    "url": "https://example.org/shop",
+    "selectors": {
+      "item": ".item",
+      "name": ".name",
+      "price": ".cost"
+    },
+    "fallback": [
+      {
+        "name": "Placeholder Hoodie",
+        "price": "$15",
+        "print_on_demand": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "scenarios": [
+    {
+      "name": "HealthMonitor_Push_Main",
+      "agent": "HealthMonitor",
+      "trigger": {
+        "type": "github-push",
+        "branch": "main"
+      },
+      "modules": [
+        {
+          "module": "http.makeRequest",
+          "name": "Run Health Check",
+          "parameters": {
+            "url": "https://tryonyou.app/health",
+            "method": "GET"
+          },
+          "mapper": {}
+        }
+      ],
+      "metadata": {
+        "version": 1
+      }
+    }
+  ]
+}

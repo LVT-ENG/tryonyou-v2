@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      
+      - name: Enable Corepack
+        shell: bash
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm -v
+          node -v
+          echo "$PATH"
+      
+      - name: Make scripts executable (si usas scripts/*.sh)
+        if: ${{ hashFiles('scripts/*.sh') != '' }}
+        run: chmod +x scripts/*.sh
+      
+      - name: Install deps
+        # --ignore-scripts prevents postinstall from attempting Vercel deployment
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      
+      - name: Build
+        run: pnpm build
+      
+      - name: Test (opcional)
+        run: pnpm test --if-present
+      
+      - name: Debug PATH (si vuelve a fallar)
+        if: failure()
+        run: |
+          which pnpm || true
+          which yarn || true
+          which npm || true
+          ls -la ./scripts || true

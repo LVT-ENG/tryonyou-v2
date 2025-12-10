@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TryOnMe te ayuda a encontrar ropa perfecta mediante IA y avatares 3D." />
+  <meta name="keywords" content="moda, realidad virtual, avatar 3D, tallas" />
+  <title>TryOnMe - Prueba Virtual de Ropa</title>
+  <link rel="canonical" href="https://app.tryonyou.app/estructura.html" />
+  <link rel="preload" as="image" href="logo.webp">
+  <link rel="preload" as="video" href="video_portada.mp4" type="video/mp4">
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;color:#333}
+    header{position:absolute;top:0;left:0;width:100%;display:flex;align-items:center;padding:1rem;z-index:10}
+    header img{height:50px}
+    main{position:relative}
+    .hero{height:100vh;overflow:hidden}
+    .hero video{width:100%;height:100%;object-fit:cover}
+    .overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:rgba(0,0,0,0.4);color:#fff;text-align:center;padding:0 1rem}
+    .cta{margin-top:1rem;padding:0.75rem 1.5rem;background:#ff4081;color:#fff;border:none;border-radius:4px;text-decoration:none}
+    .crayon-section{text-align:center;padding:2rem;background:#f5f5f5}
+    .btn{display:inline-block;margin-top:1rem;padding:0.75rem 1.5rem;background:#1e88e5;color:#fff;border-radius:4px;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="Logo TryOnMe" />
+  </header>
+  <main>
+    <section class="hero">
+      <video autoplay muted loop playsinline>
+      aria-label="Video de portada"
+        <source src="video_portada.mp4" type="video/mp4">
+      </video>
+      <div class="overlay">
+        <h1 id="titulo"></h1>
+        <h2 id="subtitulo"></h2>
+        <a href="#" class="cta" id="boton"></a>
+      </div>
+    </section>
+    <section class="crayon-section">
+      <h2>Crea tu Crayón</h2>
+      <p>Descubre tu estilo ideal y compártelo con quienes te quieran regalar algo perfecto para ti.</p>
+      <a href="/crear-tryon" class="btn">Crear TryOn</a>
+    </section>
+  </main>
+  <script>
+    fetch('textos_home.txt').then(r=>r.text()).then(t=>{
+      const [titulo,subtitulo,cta] = t.trim().split('\n');
+      document.getElementById('titulo').textContent = titulo || '';
+      document.getElementById('subtitulo').textContent = subtitulo || '';
+      document.getElementById('boton').textContent = cta || '';
+    });
+  </script>
+</body>
+</html>

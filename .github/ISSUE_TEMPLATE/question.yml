@@ -1,0 +1,68 @@
+name: Question / Support
+description: Ask a question or request support for TRY-ON
+title: "[Question]: "
+labels: ["question", "support"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out! Please provide details about your question or support request.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know or need help with?
+      placeholder: I'm wondering... / I need help with... / How do I...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: question-area
+    attributes:
+      label: Question Area
+      description: Which area does your question relate to?
+      options:
+        - Getting Started / Setup
+        - Virtual Try-On / Avatar Creation
+        - Size Recommendations
+        - Product Information
+        - Account / Profile
+        - Technical / Integration
+        - Deployment / Hosting
+        - AI Features / Pau
+        - Other
+      default: 8
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What Have You Tried?
+      description: Have you already tried anything to solve this? What resources have you checked?
+      placeholder: I've tried... / I've looked at...
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Provide any additional context, screenshots, or information that might help us answer your question.
+      placeholder: Any additional details...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm you've done the following before submitting.
+      options:
+        - label: I've searched existing issues to see if my question has already been answered
+          required: true
+        - label: I've checked the README and documentation
+          required: true

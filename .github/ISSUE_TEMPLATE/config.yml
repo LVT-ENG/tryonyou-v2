@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/Tryonme-com/tryon-app/blob/main/README.md
+    about: Read the project documentation and guides
+  - name: 💬 Discussions
+    url: https://github.com/Tryonme-com/tryon-app/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 🌐 Website
+    url: https://tryonyou.app
+    about: Visit the live TRY-ON website

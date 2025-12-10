@@ -56,6 +56,22 @@ export default function TryOnPremium() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
   const [showZoom, setShowZoom] = useState(false);
+  const [animationsEnabled, setAnimationsEnabled] = useState(true);
+  const [lowPerformanceMode, setLowPerformanceMode] = useState(false);
+
+  // Detectar preferencia de movimiento reducido
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setAnimationsEnabled(false);
+    }
+    
+    // Detectar rendimiento bajo
+    const connection = (navigator as any).connection;
+    if (connection && (connection.effectiveType === '2g' || connection.saveData)) {
+      setLowPerformanceMode(true);
+    }
+  }, []);
 
   const handleGarmentChange = (garment: Garment) => {
     setIsTransitioning(true);
@@ -64,7 +80,9 @@ export default function TryOnPremium() {
     setTimeout(() => {
       setSelectedGarment(garment);
       setIsTransitioning(false);
-      setIsRotating(true);
+      if (animationsEnabled) {
+        setIsRotating(true);
+      }
       
       setTimeout(() => {
         setIsRotating(false);
@@ -75,6 +93,18 @@ export default function TryOnPremium() {
 
   return (
     <div className="tryon-premium-container">
+      {/* Controles de animación */}
+      <div className="animation-controls">
+        <button 
+          onClick={() => setAnimationsEnabled(!animationsEnabled)}
+          aria-label={animationsEnabled ? 'Pausar animaciones' : 'Reanudar animaciones'}
+          title={animationsEnabled ? 'Pausar animaciones' : 'Reanudar animaciones'}
+        >
+          {animationsEnabled ? '⏸️ Pausar' : '▶️ Reanudar'}
+        </button>
+        {lowPerformanceMode && <span className="low-perf-badge">Modo Ligero</span>}
+      </div>
+
       {/* Logo TRYONYOU arriba derecha */}
       <div className="tryonyou-logo">
         <img src="/assets/tryonyou-logo.png" alt="TRYONYOU" />
@@ -87,7 +117,7 @@ export default function TryOnPremium() {
       </div>
 
       {/* Panel izquierdo - Catálogo de prendas */}
-      <div className="garments-panel">
+      <div className="garments-panel" role="region" aria-label="Catálogo de prendas">
         <h2>Premium Collection</h2>
         <div className="garments-grid">
           {GARMENTS.map(garment => (
@@ -95,8 +125,12 @@ export default function TryOnPremium() {
               key={garment.id}
               className={`garment-card ${selectedGarment.id === garment.id ? 'active' : ''}`}
               onClick={() => handleGarmentChange(garment)}
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => e.key === 'Enter' && handleGarmentChange(garment)}
+              aria-label={`Seleccionar ${garment.name}, ${garment.price}`}
             >
-              <img src={garment.image} alt={garment.name} />
+              <img src={garment.image} alt={garment.name} loading="lazy" />
               <div className="garment-info">
                 <h4>{garment.name}</h4>
                 <p>{garment.price}</p>
@@ -107,15 +141,15 @@ export default function TryOnPremium() {
       </div>
 
       {/* Centro - Avatar en plataforma giratoria */}
-      <div className="avatar-stage">
+      <div className="avatar-stage" role="main" aria-label="Visor de prueba virtual">
         <div className={`avatar-container ${isTransitioning ? 'transitioning' : ''} ${isRotating ? 'rotating' : ''}`}>
           <div className="platform-base">
             <div className="platform-lights"></div>
           </div>
           
           <div className="avatar-wrapper">
-            <img src={selectedModel.image} alt={selectedModel.name} className="avatar-model" />
-            <img src={selectedGarment.image} alt={selectedGarment.name} className="avatar-garment" />
+            <img src={selectedModel.image} alt={selectedModel.name} className="avatar-model" loading="eager" />
+            <img src={selectedGarment.image} alt={selectedGarment.name} className="avatar-garment" loading="eager" />
           </div>
 
           {isRotating && (
@@ -147,7 +181,7 @@ export default function TryOnPremium() {
       </div>
 
       {/* Panel derecho - Selector de modelos */}
-      <div className="models-panel">
+      <div className="models-panel" role="region" aria-label="Selector de modelos">
         <h2>Select Model</h2>
         <div className="models-grid">
           {MODELS.map(model => (
@@ -155,11 +189,31 @@ export default function TryOnPremium() {
               key={model.id}
               className={`model-card ${selectedModel.id === model.id ? 'active' : ''}`}
               onClick={() => setSelectedModel(model)}
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => e.key === 'Enter' && setSelectedModel(model)}
+              aria-label={`Seleccionar modelo ${model.name}`}
             >
-              <img src={model.image} alt={model.name} />
+              <img src={model.image} alt={model.name} loading="lazy" />
               <p>{model.name}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Mensajes de valor */}
+      <div className="value-messages">
+        <div className="value-item">
+          <span className="value-icon">⏱️</span>
+          <span>Ahorra tiempo: prueba 20 prendas en 2 minutos</span>
+        </div>
+        <div className="value-item">
+          <span className="value-icon">✅</span>
+          <span>Reduce devoluciones en 30%</span>
+        </div>
+        <div className="value-item">
+          <span className="value-icon">👗</span>
+          <span>Encuentra tu talla perfecta</span>
         </div>
       </div>
 

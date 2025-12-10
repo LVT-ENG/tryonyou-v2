@@ -13,6 +13,44 @@
   padding: 20px;
 }
 
+/* Controles de animación */
+.animation-controls {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.animation-controls button {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.animation-controls button:hover {
+  background: rgba(212, 175, 55, 0.4);
+  transform: scale(1.05);
+}
+
+.low-perf-badge {
+  background: rgba(255, 165, 0, 0.2);
+  border: 1px solid #FFA500;
+  color: #FFA500;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
 /* Logo y PAU */
 .tryonyou-logo {
   position: absolute;
@@ -269,6 +307,31 @@
   border-radius: 20px;
   color: #D4AF37;
   font-size: 12px;
+}
+
+/* Mensajes de valor */
+.value-messages {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.value-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.value-icon {
+  font-size: 20px;
 }
 
 /* Detalles */

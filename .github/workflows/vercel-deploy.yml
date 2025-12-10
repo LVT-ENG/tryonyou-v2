@@ -1,0 +1,23 @@
+name: Vercel Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-to-vercel:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "⬇️ Checkout del repositorio"
+      uses: actions/checkout@v3
+
+    - name: "🛠 Instalar Vercel CLI"
+      run: npm install -g vercel
+
+    - name: "🔑 Configurar y autenticar con Vercel"
+      run: |
+        vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}

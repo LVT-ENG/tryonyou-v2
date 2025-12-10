@@ -1,0 +1,4 @@
+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
+https://api.openai.com/v1/organization/tryonyou
+Create an organization admin API key
+https://api.openai.com/v1/organization/tryonyou

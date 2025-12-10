@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Classic Leather Moto Jacket",
+    "category": "Jackets",
+    "img": "https://via.placeholder.com/600x800",
+    "description": "Premium genuine leather moto jacket with tailored fit and edge."
+  },
+  {
+    "name": "Urban Bomber Jacket",
+    "category": "Jackets",
+    "img": "https://via.placeholder.com/600x800",
+    "description": "Lightweight nylon bomber for casual streetwear comfort and style."
+  },
+  {
+    "name": "Casual Day Dress",
+    "category": "Dresses",
+    "img": "https://via.placeholder.com/600x800",
+    "description": "Relaxed fit cotton dress. Minimalist and flattering for daily wear."
+  },
+  {
+    "name": "Men’s Formal White Shirt",
+    "category": "Shirts",
+    "img": "https://via.placeholder.com/600x800",
+    "description": "Crisp cotton shirt with sharp collar and tailored cuffs."
+  },
+  {
+    "name": "High-Top Sneakers",
+    "category": "Shoes",
+    "img": "https://via.placeholder.com/600x800",
+    "description": "Canvas high-tops with cushioned soles and urban style."
+  }
+]

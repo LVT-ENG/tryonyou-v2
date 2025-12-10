@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Example page for Pau's emotional voice interactions." />
+  <link rel="canonical" href="https://tryonme.com/emotional_voice.html" />
+  <title>Pau – Emotional Voice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f9ff;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    .mood-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #00bcd4;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #008c9e;
+    }
+
+    #pau-response {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    #pau-response.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>How are you feeling?</h1>
+    <div class="mood-buttons">
+      <button data-mood="happy">😊 Happy</button>
+      <button data-mood="sad">😢 Sad</button>
+      <button data-mood="angry">😠 Angry</button>
+      <button data-mood="neutral">😐 Neutral</button>
+    </div>
+    <div id="pau-response"></div>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll("[data-mood]");
+      const responseBox = document.getElementById("pau-response");
+
+      const responses = {
+        happy: "🦚 Pau: Love that energy! Let’s find something bright to wear ✨",
+        sad: "🦚 Pau: I'm here for you... maybe some cozy styles today?",
+        angry: "🦚 Pau: Deep breath. Let’s pick a strong look to match that fire 🔥",
+        neutral: "🦚 Pau: Cool. Let’s keep it classy and clean 🧼"
+      };
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          const mood = button.getAttribute("data-mood");
+          const message = responses[mood] || "🦚 Pau: Hmm... that’s a mysterious vibe.";
+          responseBox.textContent = message;
+          responseBox.classList.add("active");
+          speakText(message);
+        });
+      });
+
+      function speakText(text) {
+        const utterance = new SpeechSynthesisUtterance(text.replace("🦚 Pau:", "Pau says:"));
+        utterance.lang = "en-US";
+        utterance.rate = 1;
+        utterance.pitch = 1.2;
+        speechSynthesis.speak(utterance);
+      }
+    });
+  </script>
+</body>
+</html>

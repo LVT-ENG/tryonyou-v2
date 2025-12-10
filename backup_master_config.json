@@ -1,0 +1,37 @@
+{
+  "nombre": "BackupMaster",
+  "funciones": ["backup automático semanal", "subida a Google Drive"],
+  "carpetas_origen": [
+    "01_GSGENTEDS70_CORE",
+    "02_Web_InfraDeployer",
+    "03_Shopify_Uploader",
+    "04_UX_Optimizer",
+    "05_HealthMonitor",
+    "06_Automa_Flows",
+    "07_Support_AutoResponder",
+    "08_Backup_Master"
+  ],
+  "formato": "ZIP",
+  "frecuencia": "semanal",
+  "destinos": [
+    {
+      "plataforma": "Google Drive",
+      "tipo": "Service Account",
+      "autenticación": {
+        "client_email": "tryonme-backup-bot@tryonme-systems.iam.gserviceaccount.com",
+        "private_key_id": "REPLACE_WITH_KEY_ID",
+        "private_key": "-----BEGIN PRIVATE KEY-----\\nREPLACE_WITH_PRIVATE_KEY\\n-----END PRIVATE KEY-----\\n"
+      },
+      "carpeta_destino_drive": "TRYONME – SUPERAGENTS BACKUP",
+      "visibilidad": "privada",
+      "acceso_CEO": "rubén.espinar.10@icloud.com"
+    }
+  ],
+  "acciones": [
+    "comprimir carpetas en ZIP",
+    "conectar API Google Drive",
+    "subir archivo",
+    "verificar subida",
+    "enviar notificación si falla"
+  ]
+}

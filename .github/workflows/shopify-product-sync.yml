@@ -13,14 +13,16 @@ jobs:
       - name: Trigger Make Scenario
         # Requires MAKE_WEBHOOK_URL secret to be configured in GitHub repository settings
         # The webhook URL should point to your Make.com scenario endpoint
+        env:
+          WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
         run: |
-          if [ -z "${{ secrets.MAKE_WEBHOOK_URL }}" ]; then
+          if [ -z "$WEBHOOK_URL" ]; then
             echo "Error: MAKE_WEBHOOK_URL secret is not configured"
             echo "Please add MAKE_WEBHOOK_URL to your repository secrets"
             exit 1
           fi
           echo "Triggering Make.com webhook..."
-          curl -X POST -f -s -o /dev/null -w "HTTP Status: %{http_code}\n" "${{ secrets.MAKE_WEBHOOK_URL }}" || {
+          curl -X POST -f -s -o /dev/null -w "HTTP Status: %{http_code}\n" "$WEBHOOK_URL" || {
             echo "Failed to trigger webhook. Please check the MAKE_WEBHOOK_URL configuration."
             exit 1
           }

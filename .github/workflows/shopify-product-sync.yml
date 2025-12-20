@@ -22,14 +22,23 @@ jobs:
             exit 1
           fi
           echo "Triggering Make.com webhook..."
+          
+          # Create JSON payload safely using jq to avoid injection
+          PAYLOAD=$(jq -n \
+            --arg repo "${{ github.repository }}" \
+            --arg branch "${{ github.ref_name }}" \
+            --arg commit "${{ github.sha }}" \
+            --arg workflow "${{ github.workflow }}" \
+            '{repository: $repo, branch: $branch, commit: $commit, workflow: $workflow}')
+          
           HTTP_CODE=$(curl -X POST \
             -H "Content-Type: application/json" \
-            -d "{\"repository\":\"${{ github.repository }}\",\"branch\":\"${{ github.ref_name }}\",\"commit\":\"${{ github.sha }}\",\"workflow\":\"${{ github.workflow }}\"}" \
+            -d "$PAYLOAD" \
             -w "%{http_code}" \
             -o /tmp/response.txt \
             "$WEBHOOK_URL")
           
-          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -le 299 ]; then
             echo "Make.com scenario triggered successfully (HTTP $HTTP_CODE)"
           else
             echo "Failed to trigger webhook (HTTP $HTTP_CODE)"

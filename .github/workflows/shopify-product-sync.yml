@@ -11,5 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Trigger Make Scenario
-        run: curl -X POST https://api.make.com/your-webhook-url?token=SECURE_TOKEN
-
+        run: curl -X POST "${{ secrets.MAKE_WEBHOOK_URL }}"

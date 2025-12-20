@@ -22,9 +22,19 @@ jobs:
             exit 1
           fi
           echo "Triggering Make.com webhook..."
-          curl -X POST -f -s -o /dev/null -w "HTTP Status: %{http_code}\n" "$WEBHOOK_URL" || {
-            echo "Failed to trigger webhook. Please check the MAKE_WEBHOOK_URL configuration."
+          HTTP_CODE=$(curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"repository\":\"${{ github.repository }}\",\"branch\":\"${{ github.ref_name }}\",\"commit\":\"${{ github.sha }}\",\"workflow\":\"${{ github.workflow }}\"}" \
+            -w "%{http_code}" \
+            -o /tmp/response.txt \
+            "$WEBHOOK_URL")
+          
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            echo "Make.com scenario triggered successfully (HTTP $HTTP_CODE)"
+          else
+            echo "Failed to trigger webhook (HTTP $HTTP_CODE)"
+            echo "Response:"
+            cat /tmp/response.txt
             exit 1
-          }
-          echo "Make.com scenario triggered successfully"
+          fi
 

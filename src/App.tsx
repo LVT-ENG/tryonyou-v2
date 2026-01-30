@@ -6,12 +6,14 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import DemoBrands from "./pages/DemoBrands";
+import Demo from "./pages/Demo";
 import VirtualTryOnPro from "./components/VirtualTryOnPro";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/demo" component={Demo} />
       <Route path="/demo-brands" component={DemoBrands} />
       <Route path="/virtual-tryon" component={VirtualTryOnPro} />
       <Route path="/404" component={NotFound} />

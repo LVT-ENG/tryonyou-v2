@@ -72,13 +72,14 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg"
-              className="bg-gold hover:bg-yellow-500 text-black font-bold"
-              onClick={() => window.location.href = getLoginUrl()}
-            >
-              Get Started Now
-            </Button>
+<Link href="/demo">
+	              <Button 
+	                size="lg"
+	                className="bg-gold hover:bg-yellow-500 text-black font-bold w-full sm:w-auto"
+	              >
+	                Activate my Digital Twin
+	              </Button>
+	            </Link>
             <Link href="/demo-brands">
               <Button 
                 size="lg"
